@@ -7,7 +7,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style.complete.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>VCOIN Presale</title>
+    <title>VCOIN Your Wallet</title>
 </head>
 <body>
 <div id="page" class="page">
@@ -17,11 +17,13 @@
             <div class="container">
                 <div class="row banner2">
                     <div class="col-md-8 col-md-offset-2 text-center">
-                        <img src="images/hexagon.png" alt="logo"/>
-                        <h1>VCOIN is already here</h1>
-                        <p class="lead">Let's go!</p>
-                        <button type="button" onclick="goEmailStep()" class="btn btn-primary btn-lg btn-wide">Sign up</button>
-                        <button type="button" onclick="login()" class="btn btn-primary btn-lg btn-wide">Log in</button>
+                        <h1 style="margin-bottom: 100px;margin-top: -50px;">VCOIN Your Wallet</h1>
+                        <h5>This is your wallet address. Please copy and save it.</h5>
+                        <div class="form-group">
+                            <input style="width: 70%;text-align:  center;" id="wallet_address" onclick="copyOnClick()" class="form-control-plaintext" value="0x000000000000000000000001" readonly>
+                        </div>
+                        <button type="button" onclick="goTransactionScreen()" class="btn btn-primary btn-lg btn-wide">Next
+                        </button>
                     </div>
                 </div>
             </div>
@@ -32,4 +34,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
 <script src="javascripts/app.js"></script>
+
+
 </html>
+

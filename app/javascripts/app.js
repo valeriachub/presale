@@ -8,56 +8,144 @@ var config = {
 };
 firebase.initializeApp(config);
 
-function done() {
+function goEmailStep() {
+    window.open("emaildata.html", "_self");
+}
+
+function goUserInfoStep() {
     var email = document.getElementById('email').value
     var password = document.getElementById('password').value
+    var passwordConfirm = document.getElementById('passwordc').value
+    var phone = document.getElementById('phone').value
+    var isTermsAgree = document.getElementById('termOfUse').checked
 
-    firebase
-        .firestore()
-        .collection("Users")
-        .add({
-            email: email,
-            password: password,
-            wallet_address: 1111
+    if (email === "" || password === "" || passwordConfirm === "" || phone === "") {
+        alert("Please fill all the fields");
+    }
+
+    else if (password !== passwordConfirm) {
+        alert("The passwords are different");
+    }
+
+    else if (!isTermsAgree) {
+        alert("Please agree with the terms of use");
+    }
+
+    else {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
+            window.open("userdata.html", "_self");
         })
-        .then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
+            .catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                console.error(errorCode);
+                alert(errorMessage);
+            });
+    }
+}
+
+function goPaymentStep() {
+    var name = document.getElementById('name').value
+    var surname = document.getElementById('surname').value
+    var middleName = document.getElementById('middleName').value
+    var c = document.getElementById('country')
+    var country = c.options[c.selectedIndex].text
+    var address = document.getElementById('address').value
+
+    if (name === "" || surname === "" || middleName === "" || address === "") {
+        alert("Please fill all the fields");
+    }
+
+    else {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var uid = user.uid;
+                var email = user.email;
+
+                firebase
+                    .firestore()
+                    .collection("Users")
+                    .add({
+                        email: email,
+                        uid: uid,
+                        name: name,
+                        surname: surname,
+                        middleName: middleName,
+                        country: country,
+                        address: address
+                    })
+                    .then(function (docRef) {
+                        console.log("Document written with ID: ", docRef.id);
+                        window.open("walletdata.html", "_self");
+                    })
+                    .catch(function (error) {
+                        console.error("Error adding document: ", error);
+                    });
+
+            } else {
+                // User is signed out.
+                // ...
+            }
         });
+    }
 }
 
-
-function start() {
-    var email = document.getElementById('email').value
-    var password = document.getElementById('password').value
-
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        console.log(errorMessage);
-    });
+function copyOnClick() {
+    var copyText = document.getElementById("wallet_address");
+    copyText.select();
+    document.execCommand("Copy");
+    alert("Copied: " + copyText.value);
 }
 
-function signup() {
-
-    window.open("email-password.html");
+function goTransactionScreen() {
+    window.open("transactiondata.html", "_self");
 }
 
-function createUser() {
-    var email = document.getElementById('email').value
-    var password = document.getElementById('password').value
+function goDoneStep() {
+    var addressFrom = document.getElementById('address_from').value
+    var addressTo = document.getElementById('address_to').value
+    var amount = document.getElementById('amount').value
+    var transactionHash = document.getElementById('hash').value
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+    if (addressFrom === "" || addressTo === "" || amount === "" || transactionHash === "") {
+        alert("Please fill all the fields");
+    }
 
-        console.log(errorMessage);
-        // ...
-    });
+    else {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var uid = user.uid;
+
+                firebase
+                    .firestore()
+                    .collection("Users")
+                    .where('uid', '==', uid)
+                    .get()
+                    .then(function (querySnapshot) {
+                        querySnapshot.forEach(function (doc) {
+                            firebase
+                                .firestore()
+                                .collection("Users")
+                                .doc(doc.id)
+                                .update({
+                                    addressFrom: addressFrom,
+                                    addressTo: addressTo,
+                                    amount: amount,
+                                    transactionHash: transactionHash
+                                })
+                                .then(function () {
+                                    window.open("finishdata.html", "_self");
+                                })
+                                .catch(function (error) {
+                                    console.error("Error adding document: ", error);
+                                });
+                        })
+                    });
+            } else {
+                // User is signed out.
+                // ...
+            }
+        })
+    }
 }
-

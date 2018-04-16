@@ -6748,7 +6748,7 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
         width: 624px;
     }
 }
- 
+
 .has-switch {
     border-radius: 30px;
     display: inline-block;
@@ -7180,7 +7180,7 @@ fieldset[disabled] .navbar-inverse .navbar-btn.active {
 .mal {
     margin-left: 20px !important;
 }
- 
+
 /* FONT PATH
  * -------------------------- */
 @font-face {
@@ -9893,7 +9893,7 @@ figure.effect-lily:hover p {
 
 }
 
- 
+
 
 /*	HEADER 3
 /*----------------------------------------------------*/
@@ -10064,7 +10064,7 @@ figure.effect-lily:hover p {
 
 
 }
-  
+
 /* Caption styles */
 .nivo-caption {
     position:absolute;
@@ -10127,7 +10127,7 @@ figure.effect-lily:hover p {
 }
 .nivo-controlNav a.active {
     font-weight:bold;
-}/* 
+}/*
  * 	Core Owl Carousel CSS File
  *	v1.3.3
  */
@@ -10199,7 +10199,7 @@ figure.effect-lily:hover p {
 }
 
 /*
-* 	Owl Carousel Owl Demo Theme 
+* 	Owl Carousel Owl Demo Theme
 *	v1.3.3
 */
 
@@ -10276,8 +10276,8 @@ figure.effect-lily:hover p {
 .owl-item.loading{
     min-height: 150px;
     background: url(AjaxLoader.gif) no-repeat center center
-}/* 
- *  Owl Carousel CSS3 Transitions 
+}/*
+ *  Owl Carousel CSS3 Transitions
  *  v1.3.2
  */
 
@@ -11340,6 +11340,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
         background-size: cover;
         background-attachment: scroll;
         background-color: rgba(0, 0, 0, 0);
+        height: 150%;
         /*background: url(../images/picture1.jpg) no-repeat scroll 50% 50% / cover  rgba(0, 0, 0, 0);*/
     }
 
@@ -11377,7 +11378,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
         color: #ffffff;
     }
 
-     
+
 
 
     /* carousel */
@@ -11531,7 +11532,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
         top: -4px;
     }
 
- 
+
 
     /*	PATTERN LIBRARY STYLES
 /*----------------------------------------------------*/
@@ -11642,12 +11643,12 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 
     /** TYPOGRAPHY **/
     h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
         line-height: 1.1;
     }
 
     h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
-        col or: #e5e5e5;
+        color: #e5e5e5;
     }
 
     h1, h2, h3 {
@@ -12950,7 +12951,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 
 /* general styles */
 
-    
+
 
     .light {
         font-weight: 400;
@@ -13380,7 +13381,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
         bottom: 4em;
         left: 1em;
         right: 1em;
-        font-family: "Lato", Helvetica, Arial, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
     }
     .video-js .vjs-text-track {
         display: none;
@@ -13617,7 +13618,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
         height: 20px;
         width: 50px;
         top: 16px;
-        font: 300 13px "Lato", Helvetica, Arial, sans-serif;
+        font: 300 13px Helvetica, Arial, sans-serif;
     }
     .vjs-current-time {
         right: 128px;

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.complete.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>VCOIN Sign Up</title>
+</head>
+<body>
+<div id="page" class="page">
+    <div class="item header margin-top-0 padding-bottom-0" id="header3">
+        <header class="wrapper image image1">
+            <div class="bg bg1"></div>
+            <div class="container">
+                <div class="row banner2">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1 style="margin-bottom: 100px;margin-top: -50px;">VCOIN Sign Up</h1>
+                        <form method="post">
+                        <div class="form-group">
+                            <input class="form-control"
+                                   type="email"
+                                   id="email"
+                                   required
+                                   name="email" placeholder="Email"/>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control"
+                                   type="password"
+                                   id="password"
+                                   required
+                                   name="password" placeholder="Password"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control"
+                                   type="password"
+                                   id="passwordc"
+                                   required
+                                   name="passwordc" placeholder="Password Confirmation"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control"
+                                   type="tel"
+                                   id="phone"
+                                   required
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   name="phone" placeholder="Phone"/>
+                        </div>
+                        <div class="form-group">
+
+                                <input
+                                       type="checkbox"
+                                       id="termOfUse"
+                                       required
+                                       name="termOfUse"/>
+                                <label for="termOfUse">Agree with the terms of use</label>
+
+                        </div>
+                        <button type="button" onclick="goUserInfoStep()" class="btn btn-primary btn-lg btn-wide">Next
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+<script type="text/javascript" src="javascripts/app.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        "use strict";
+
+        var phonePattern = /^\+1\d{5}\d{2}\d{2}\d{2}$/;
+        var phonePattern2 = /^\+86\d{4}\d{2}\d{2}\d{2}$/;
+        var phone = $('input[name=phone]');
+       // var phoneBull = false;
+
+        phone.blur(function() {
+            if (phone.val().length != 0) {
+                // Проверяем, если введенный номер телефона соответствует регулярному выражению
+                if (phone.val().search(phonePattern) == 0) {
+                    alert('Ошибка, вы из США');
+                } else if (phone.val().search(phonePattern2) == 0) {
+                    alert('Ошибка, вы из Китая');
+                }
+                else {
+                    //  Все хорошо.
+                }
+            } else {
+                alert('Номер телефона не заполнен');
+            }
+        });
+    });
+</script>
+</html>
