@@ -149,3 +149,29 @@ function goDoneStep() {
         })
     }
 }
+
+function goLoginStep() {
+    window.open("logindata.html", "_self");
+}
+
+function login() {
+    var email = document.getElementById('email').value
+    var password = document.getElementById('password').value
+
+    if (email === "" || password === "") {
+        alert("Please fill all the fields");
+    } else {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(function (user) {
+                window.open("homepage.html", "_self");
+            })
+            .catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                console.error(errorCode);
+                alert(errorMessage);
+            });
+    }
+}
+

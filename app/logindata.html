@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.complete.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>VCOIN Log in</title>
+</head>
+<body>
+<div id="page" class="page">
+    <div class="item header margin-top-0 padding-bottom-0" id="header3">
+        <header class="wrapper image image1">
+            <div class="bg bg1"></div>
+            <div class="container">
+                <div class="row banner2">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1 style="margin-bottom: 100px;margin-top: -50px;">VCOIN Log in</h1>
+                        <form method="post">
+                            <div class="form-group">
+                                <input class="form-control"
+                                       type="email"
+                                       id="email"
+                                       required
+                                       name="email" placeholder="Email"/>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control"
+                                       type="password"
+                                       id="password"
+                                       required
+                                       name="password" placeholder="Password"/>
+                            </div>
+                            <button type="button" onclick="login()" class="btn btn-primary btn-lg btn-wide">Log in
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+<script src="javascripts/app.js"></script>
+</html>
+
